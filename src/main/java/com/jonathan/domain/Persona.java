@@ -127,7 +127,9 @@ public class Persona implements Serializable {
 
     @Override
     public String toString() {
-        return "com.jonathan.domain.Persona[ idPersona=" + idPersona + " ]";
+        return "Persona{" + "idPersona=" + idPersona + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", telefono=" + telefono + ", usuarioList=" + usuarioList + '}';
     }
+
+    
     
 }

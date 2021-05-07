@@ -3,15 +3,15 @@
   <!-- Define Persistence Unit -->
   <persistence-unit name="test" transaction-type="JTA">
     <jta-data-source>jdbc/PersonaDb</jta-data-source>
-    <!--
-    <class>com.jonathan.domain.Usuario</class>
+    
+    <!--<class>com.jonathan.domain.Usuario</class>
     <class>com.jonathan.domain.Persona</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/test?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.password" value="Aldebaran28@"/>
-    </properties>-->
-    
+    </properties>
+    -->
   </persistence-unit>
 </persistence>
