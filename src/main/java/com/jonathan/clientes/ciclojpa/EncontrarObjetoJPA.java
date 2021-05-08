@@ -1,4 +1,4 @@
-package com.jonathan.ciclojpa;
+package com.jonathan.clientes.ciclojpa;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -8,8 +8,8 @@ import com.jonathan.domain.Persona;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class EliminarObjetoJPA {
-    
+public class EncontrarObjetoJPA {
+
     static Logger log = LogManager.getRootLogger();
 
     public static void main(String[] args) {
@@ -20,28 +20,15 @@ public class EliminarObjetoJPA {
         //Paso 1. Iniciar una transaccion
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        
-        //Paso 2. Ejecuta SQL de tipo select
-        Persona persona1 = em.find(Persona.class, 4);
-        
-        //Paso 3. termina transaccion 1
-        tx.commit();
-        
-        //objeto en estado detached
-        log.debug("objeto encontrado:" + persona1);
-        
-        //Paso 4. Inicia transaccion 2
-        EntityTransaction tx2 = em.getTransaction();
-        tx2.begin();
-        
-        //Paso 5. Ejecuta SQL que es un delete
-        em.remove( em.merge(persona1));
 
-        //Paso 6. termina transaccion 2
-        tx2.commit();
+        //Paso 2. Ejecuta SQL de tipo select
+        Persona persona1 = em.find(Persona.class, 5);
         
-        //objeto en estado detached ya eliminado
-        log.debug("objeto eliminado:" + persona1);
+        //Paso 3. termina la transaccion
+        tx.commit();
+       
+        //Objeto en estado de detached
+        log.debug("Objeto recuperado:" + persona1);
         
         //Cerramos el entity manager
         em.close();

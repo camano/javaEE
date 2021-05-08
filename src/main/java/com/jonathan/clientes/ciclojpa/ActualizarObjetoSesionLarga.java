@@ -1,4 +1,4 @@
-package com.jonathan.ciclojpa;
+package com.jonathan.clientes.ciclojpa;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
