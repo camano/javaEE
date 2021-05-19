@@ -11,6 +11,9 @@
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.password" value="Aldebaran28@"/>
         </properties>
--->
+-->        <properties>
+            <property name="eclipselink.logging.level.sql" value="FINE" />
+            <property name="eclipselink.loggin.parameters" value="true" />
+        </properties>
     </persistence-unit>
 </persistence>

@@ -5,13 +5,19 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import com.jonathan.domain.Persona;
+import javax.annotation.Resource;
+import javax.ejb.SessionContext;
 import javax.inject.Inject;
+import javax.jws.WebService;
 
 @Stateless
-public class PersonaServiceImpl implements PersonaServiceRemote, PersonaService {
+@WebService(endpointInterface = "com.jonathan.servicio.PersonaServiceWS")
+public class PersonaServiceImpl implements PersonaServiceRemote, PersonaService ,PersonaServiceWS{
 
     @Inject
     private IPersonaDao personaDao;
+      @Resource
+    private SessionContext contexto;
 
     @Override
     public List<Persona> listarPersonas() {

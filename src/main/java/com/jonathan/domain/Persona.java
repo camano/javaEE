@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.*;
 
 /**
  *
@@ -22,6 +23,8 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Persona.findByApellido", query = "SELECT p FROM Persona p WHERE p.apellido = :apellido"),
     @NamedQuery(name = "Persona.findByEmail", query = "SELECT p FROM Persona p WHERE p.email = :email"),
     @NamedQuery(name = "Persona.findByTelefono", query = "SELECT p FROM Persona p WHERE p.telefono = :telefono")})
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement
 @Table(name = "persona")
 public class Persona implements Serializable {
 
@@ -40,7 +43,8 @@ public class Persona implements Serializable {
     private String email;
     @Size(max = 50)
     private String telefono;
-    @OneToMany(mappedBy = "persona")
+    @XmlTransient
+    @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
     private List<Usuario> usuarioList;
 
     public Persona() {
@@ -127,9 +131,7 @@ public class Persona implements Serializable {
 
     @Override
     public String toString() {
-        return "Persona{" + "idPersona=" + idPersona + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", telefono=" + telefono + ", usuarioList=" + usuarioList + '}';
+        return "Persona{" + "idPersona=" + idPersona + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", telefono=" + telefono + '}';
     }
 
-    
-    
 }
